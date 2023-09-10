@@ -1,4 +1,3 @@
-# https://towardsdatascience.com/creating-a-cover-letter-generator-using-python-and-gpt-3-297a6b2a3886
 import os
 import openai
 
@@ -21,9 +20,6 @@ def run_conversation(user_name = "", user_address = "", user_phone = "", user_em
                  + f"\nPlease include all the information given above and don't include any placeholders (i.e. [Your Name])"
     }]
     
-    response = openai.ChatCompletion.create(
-        model="gpt-3.5-turbo-0613",
-        messages=messages,
-    )
+    response = openai.ChatCompletion.create(model="gpt-3.5-turbo-0613", messages=messages)
     return response.get("choices")[0].get("message").get("content")
 
